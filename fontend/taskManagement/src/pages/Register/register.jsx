@@ -1,58 +1,56 @@
-import React from 'react'
-import "./register.css"
-import Navbar from '../../componnets/Navbar/Navbar'
-import Slidebar from '../../componnets/Slidebar/Slidebar'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./register.css";
+import Navbar from "../../componnets/Navbar/Navbar";
+import Sidebar from "../../componnets/sidebar/sidebar";
 
-export default function register() {
+
+export default function Register() {
+  const [form, setForm] = useState({ name:"", email:"", password:"" });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  function handleChange(e){ setForm(p=>({...p,[e.target.name]:e.target.value})); }
+
+  async function handleSubmit(e){
+    e.preventDefault();
+    try {
+      await registerRequest(form);
+      navigate("/login");
+    } catch {
+      setError("Register failed");
+    }
+  }
+
   return (
-    <div className='login-page'>
+    <div className="login-page">
       <Navbar/>
-        <div className="page-layout">
-            <Slidebar/>
-            <div className="register-container">
-                <form className="register-form">
-                    <h2 className="register-title">Create a New Account</h2>
-                    <h5 className="register-subtitle">
-                        Register Now. Already have an account? 
-                        <a href="/" className="login-link">Login here</a>
-                    </h5>
-                    <div className="form-group">
-                        <label htmlFor="username" className="form-label">Fullname</label>
-                        <input
-                            type="text"
-                            id="username"
-                            className="form-input"
-                            placeholder="johndoe"
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email" className="form-label">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="form-input"
-                            placeholder="johndoe@gmail.com"
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password" className="form-label">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="form-input"
-                            placeholder="••••••••••••"
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="register-button">
-                        Register
-                    </button>
-                </form>
+      <div className="page-layout">
+        <Sidebar/>
+        <div className="register-container">
+          <form className="register-form" onSubmit={handleSubmit}>
+            <h2 className="register-title">Create a New Account</h2>
+            <h5 className="register-subtitle">
+              Register Now. Already have an account?
+              <Link to="/login" className="login-link"> Login here</Link>
+            </h5>
+            {error && <div className="alert">{error}</div>}
+            <div className="form-group">
+              <label className="form-label">Full Name</label>
+              <input name="name" type="text" className="form-input" onChange={handleChange}/>
             </div>
+            <div className="form-group">
+              <label className="form-label">Email</label>
+              <input name="email" type="email" className="form-input" onChange={handleChange}/>
+            </div>
+            <div className="form-group">
+              <label className="form-label">Password</label>
+              <input name="password" type="password" className="form-input" onChange={handleChange}/>
+            </div>
+            <button type="submit" className="register-button">Register</button>
+          </form>
         </div>
+      </div>
     </div>
-  )
+  );
 }
-

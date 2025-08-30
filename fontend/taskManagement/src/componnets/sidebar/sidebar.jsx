@@ -1,7 +1,7 @@
 // Sidebar.jsx
 import React from 'react';
 import { FaThLarge, FaCheckCircle, FaClock, FaExclamationTriangle } from "react-icons/fa";
-import './slidebar.css';
+import './sidebar.css';
 
 export default function Sidebar() {
   return (
