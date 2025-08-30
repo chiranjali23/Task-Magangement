@@ -1,0 +1,318 @@
+/* register.css */
+
+/* Main page layout - reusing login-page styles */
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+  
+  .page-layout {
+    display: flex;
+    padding-top: 64px; /* Account for fixed navbar */
+  }
+  
+  /* Register container */
+  .register-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px);
+    padding: 20px;
+    margin-left: 80px; /* Account for sidebar */
+  }
+  
+  /* Register form */
+  .register-form {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  /* Register title */
+  .register-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 8px 0;
+    text-align: center;
+  }
+  
+  /* Subtitle */
+  .register-subtitle {
+    font-size: 14px;
+    color: #718096;
+    margin: 0 0 32px 0;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .login-link {
+    color: #14b8a6;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 4px;
+    transition: color 0.2s ease;
+  }
+  
+  .login-link:hover {
+    color: #0d9488;
+    text-decoration: underline;
+  }
+  
+  /* Form groups */
+  .form-group {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #2d3748;
+    background: #f8f9fa;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #14b8a6;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+  }
+  
+  .form-input::placeholder {
+    color: #a0aec0;
+    font-size: 14px;
+  }
+  
+  /* Register button */
+  .register-button {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+  
+  .register-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3);
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  }
+  
+  .register-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.2);
+  }
+  
+  .register-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .register-button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Input validation styles */
+  .form-input:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+    background: #fef2f2;
+  }
+  
+  .form-input:valid:not(:placeholder-shown) {
+    border-color: #10b981;
+    background: #f0fdf4;
+  }
+  
+  /* Focus states for accessibility */
+  .form-input:focus-visible {
+    outline: 2px solid #14b8a6;
+    outline-offset: 2px;
+  }
+  
+  .register-button:focus-visible {
+    outline: 2px solid #14b8a6;
+    outline-offset: 2px;
+  }
+  
+  /* Password strength indicator (optional enhancement) */
+  .password-strength {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .password-strength.weak {
+    color: #ef4444;
+  }
+  
+  .password-strength.medium {
+    color: #f59e0b;
+  }
+  
+  .password-strength.strong {
+    color: #10b981;
+  }
+  
+  /* Terms and conditions (optional) */
+  .terms-section {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    color: #374151;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  
+  .terms-checkbox input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: #14b8a6;
+  }
+  
+  .terms-link {
+    color: #14b8a6;
+    text-decoration: none;
+  }
+  
+  .terms-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .page-layout {
+      flex-direction: column;
+    }
+    
+    .register-container {
+      margin-left: 0;
+      padding: 16px;
+    }
+  
+    .register-form {
+      padding: 32px 24px;
+      max-width: 100%;
+    }
+  
+    .register-title {
+      font-size: 22px;
+    }
+  
+    .form-input {
+      padding: 12px 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .register-form {
+      padding: 24px 20px;
+    }
+  
+    .register-title {
+      font-size: 20px;
+    }
+  
+    .register-subtitle {
+      font-size: 13px;
+    }
+  
+    .form-input {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+  }
+  
+  /* Loading state */
+  .register-button.loading {
+    position: relative;
+    color: transparent;
+  }
+  
+  .register-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Success message */
+  .success-message {
+    background: #f0fdf4;
+    border: 1px solid #10b981;
+    color: #047857;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Error message */
+  .error-message {
+    background: #fef2f2;
+    border: 1px solid #ef4444;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
