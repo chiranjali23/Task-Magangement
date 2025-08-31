@@ -1,0 +1,58 @@
+:root {
+    --nav-h: 64px;
+    --side-w: 80px;
+  }
+  
+  .dashboard {
+    min-height: 100vh;
+    background: linear-gradient(135deg,#f7f5ff,#eef6ff,#fff5f7);
+  }
+  
+  /* push main content away from fixed navbar + sidebar */
+  .dashboard-content {
+    margin-top: var(--nav-h);
+    margin-left: var(--side-w);
+    padding: 16px;
+  }
+  
+  .task-area-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 6px 0 12px;
+  }
+  
+  .task-area-head h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+  }
+  
+  .add-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 9999px;
+    background: #22c55e;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+  .add-btn:hover { background: #16a34a; transform: translateY(-1px); }
+  
+  /* grid of task cards */
+  .tasks {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(4, minmax(240px, 1fr));
+  }
+  
+  /* responsive */
+  @media (max-width: 1200px) { .tasks { grid-template-columns: repeat(3, minmax(240px,1fr)); } }
+  @media (max-width: 900px)  { .tasks { grid-template-columns: repeat(2, minmax(220px,1fr)); } }
+  @media (max-width: 640px)  {
+    .dashboard-content { margin-left: 0; padding: 12px; }
+    .tasks { grid-template-columns: 1fr; }
+  }
+  
