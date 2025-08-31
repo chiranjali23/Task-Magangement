@@ -46,6 +46,19 @@
     align-items: center;
     gap: 12px;
   }
+
+  .task-button {
+    background-color: #07a042;
+    margin-right: 20px;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
   
   .icon-btn {
     width: 36px;
