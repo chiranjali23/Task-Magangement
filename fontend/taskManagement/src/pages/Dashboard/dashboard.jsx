@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DashboardNavbar from "../../componnets/DashboardNavbar/DashboardNavbar.jsx";
 import Sidebar from "../../componnets/sidebar/sidebar.jsx";
-import TaskCard from "../../componnets/TaskCard/Taskcard.jsx";
+import Taskcard from "../../componnets/TaskCard/Taskcard.jsx";
 import TaskModal from "../../componnets/TaskModel/TaskModel.jsx";
 import "./dashboard.css";
 
@@ -32,7 +32,7 @@ export default function Dashboard() {
           </div>
 
           <div className="tasks">
-            {tasks.map((t,i)=> <TaskCard key={i} task={t} />)}
+            {tasks.map((t,i)=> <Taskcard key={i} task={t} />)}
           </div>
         </div>
       </div>
