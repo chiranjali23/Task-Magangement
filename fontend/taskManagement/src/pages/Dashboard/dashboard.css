@@ -1,35 +1,51 @@
-:root {
-    --nav-h: 64px;
-    --side-w: 80px;
+/* ===========================
+   Dashboard Layout (no Tailwind)
+   =========================== */
+
+   :root{
+    --nav-h: 64px;   /* fixed navbar height */
+    --side-w: 80px;  /* left sidebar width */
   }
   
-  .dashboard {
+  /* page bg + base */
+  .dashboard{
     min-height: 100vh;
-    background: linear-gradient(135deg,#f7f5ff,#eef6ff,#fff5f7);
+    background: linear-gradient(135deg, #f7f5ff, #eef6ff, #fff5f7);
   }
   
-  /* push main content away from fixed navbar + sidebar */
-  .dashboard-content {
+  /* main 3-column layout: [left sidebar is fixed], center content + right panel flow here */
+  .dashboard-content{
     margin-top: var(--nav-h);
     margin-left: var(--side-w);
     padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-sizing: border-box;
   }
   
-  .task-area-head {
+  /* ===== center column ===== */
+  .task-area{
+    flex: 1;
+    min-width: 0; /* prevents overflow when grid shrinks */
+  }
+  
+  .task-area-head{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 6px 0 12px;
   }
   
-  .task-area-head h2 {
+  .task-area-head h2{
     margin: 0;
     font-size: 20px;
     font-weight: 700;
     color: #374151;
   }
   
-  .add-btn {
+  /* optional top-right button (if you keep it in page head as well) */
+  .add-btn{
     padding: 8px 14px;
     border: none;
     border-radius: 9999px;
@@ -39,20 +55,47 @@
     cursor: pointer;
     transition: .2s ease;
   }
-  .add-btn:hover { background: #16a34a; transform: translateY(-1px); }
+  .add-btn:hover{ background:#16a34a; transform: translateY(-1px); }
   
   /* grid of task cards */
-  .tasks {
+  .tasks{
     display: grid;
     gap: 14px;
     grid-template-columns: repeat(4, minmax(240px, 1fr));
   }
   
-  /* responsive */
-  @media (max-width: 1200px) { .tasks { grid-template-columns: repeat(3, minmax(240px,1fr)); } }
-  @media (max-width: 900px)  { .tasks { grid-template-columns: repeat(2, minmax(220px,1fr)); } }
-  @media (max-width: 640px)  {
-    .dashboard-content { margin-left: 0; padding: 12px; }
-    .tasks { grid-template-columns: 1fr; }
+  /* responsive grid breakpoints */
+  @media (max-width: 1200px){
+    .tasks{ grid-template-columns: repeat(3, minmax(240px, 1fr)); }
   }
+  @media (max-width: 900px){
+    .tasks{ grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+  }
+  @media (max-width: 640px){
+    .dashboard-content{ margin-left: 0; padding: 12px; }
+    .tasks{ grid-template-columns: 1fr; }
+  }
+  
+  /* ===== right-side sticky panel container =====
+     (the panel’s inner styling is in RightPanel.css;
+     these rules just reserve and position the column) */
+  .right-panel{
+    width: 300px;
+    flex: 0 0 300px;
+    position: sticky;
+    top: var(--nav-h);                 /* stick below the fixed navbar */
+    max-height: calc(100vh - var(--nav-h));
+    overflow: auto;
+  }
+  
+  /* Hide right panel on smaller screens */
+  @media (max-width: 1024px){
+    .right-panel{ display: none; }
+  }
+  
+  /* ===== helpers (optional) ===== */
+  
+  /* if you wrap your right panel with this class in JSX:
+     <div className="right-panel"><RightPanel .../></div>
+     otherwise, remove this block and rely entirely on RightPanel.css */
   

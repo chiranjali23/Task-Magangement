@@ -1,32 +1,50 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./TaskModel.css";
 
-export default function TaskModal({ open, onClose, onCreate }) {
+export default function TaskModal({
+  open,
+  mode = "create",               // "create" | "edit"
+  initialTask = null,            // when editing
+  onClose,
+  onCreate,                      // (payload) => void
+  onUpdate,                      // (id, payload) => void
+}) {
   const [form, setForm] = useState({
     title: "", description: "", priority: "low", dueDate: "", completed: "no"
   });
-  const titleRef = useRef(null);
 
+  // preload values when editing or when opening
   useEffect(() => {
-    if (open) {
+    if (!open) return;
+    if (mode === "edit" && initialTask) {
+      setForm({
+        title: initialTask.title || "",
+        description: initialTask.desc || "",
+        priority: (initialTask.priority || "low").toLowerCase(),
+        dueDate: initialTask.when || "",
+        completed: initialTask.completed ? "yes" : "no",
+      });
+    } else {
       setForm({ title:"", description:"", priority:"low", dueDate:"", completed:"no" });
-      setTimeout(() => titleRef.current?.focus(), 0);
-      document.body.style.overflow = "hidden";
-      return () => { document.body.style.overflow = ""; };
     }
-  }, [open]);
+  }, [open, mode, initialTask]);
 
-  function handleChange(e){ const {name,value} = e.target; setForm(p=>({...p,[name]:value})); }
-  function submit(e){
+  function handleChange(e){
+    const { name, value } = e.target;
+    setForm(p => ({ ...p, [name]: value }));
+  }
+
+  function handleSubmit(e){
     e.preventDefault();
-    if (!form.title.trim()) return;
-    onCreate?.({
+    const payload = {
       title: form.title.trim(),
       desc: form.description.trim(),
       priority: form.priority,
-      when: form.dueDate || "Today",
+      when: form.dueDate,
       completed: form.completed === "yes",
-    });
+    };
+    if (mode === "edit") onUpdate?.(initialTask.id, payload);
+    else onCreate?.(payload);
     onClose?.();
   }
 
@@ -35,17 +53,18 @@ export default function TaskModal({ open, onClose, onCreate }) {
   return (
     <div className="tm-overlay" onClick={(e)=>e.target===e.currentTarget && onClose?.()}>
       <div className="tm-dialog" role="dialog" aria-modal="true">
-        <form onSubmit={submit}>
+        <h3 style={{marginTop:0}}>{mode === "edit" ? "Edit Task" : "Create Task"}</h3>
+
+        <form onSubmit={handleSubmit}>
           <div className="tm-field">
             <label className="tm-label">Title</label>
-            <input ref={titleRef} name="title" className="tm-input" placeholder="Task Title"
-                   value={form.title} onChange={handleChange} required />
+            <input name="title" className="tm-input" value={form.title} onChange={handleChange} required />
           </div>
 
           <div className="tm-field">
             <label className="tm-label">Description</label>
             <textarea name="description" className="tm-textarea" rows={3}
-                      placeholder="Task Description" value={form.description} onChange={handleChange}/>
+                      value={form.description} onChange={handleChange}/>
           </div>
 
           <div className="tm-row">
@@ -70,7 +89,9 @@ export default function TaskModal({ open, onClose, onCreate }) {
 
           <div className="tm-actions">
             <button type="button" className="tm-btn ghost" onClick={onClose}>Cancel</button>
-            <button type="submit" className="tm-btn primary">Create Task</button>
+            <button type="submit" className="tm-btn primary">
+              {mode === "edit" ? "Save Changes" : "Create Task"}
+            </button>
           </div>
         </form>
       </div>
