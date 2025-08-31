@@ -1,33 +1,82 @@
+// Updated Login.jsx with backend integration
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./login.css";
-import Navbar from '../../componnets/Navbar/Navbar';
-import Sidebar from '../../componnets/sidebar/sidebar';
+import Navbar from '../../componnets/Navbar/Navbar'
+import Sidebar from '../../componnets/sidebar/sidebar'
+
+// API base URL - adjust this to match your backend
+const API_BASE_URL = 'http://localhost:5000/api';
 
 export default function Login() {
-  // State variables
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({
+    email: "",
+    password: ""
+  });
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Function to handle input change
   function handleChange(e) {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+    // Clear error when user starts typing
+    if (error) setError("");
   }
 
-  // Function to handle form submission
+  // API function to login user
+  async function loginRequest(credentials) {
+    const response = await fetch(`${API_BASE_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials)
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Login failed');
+    }
+
+    return data;
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
-    setError("");
     setLoading(true);
+    setError("");
+
+    // Client-side validation
+    if (!form.email.trim()) {
+      setError("Email is required");
+      setLoading(false);
+      return;
+    }
+
+    if (!form.password) {
+      setError("Password is required");
+      setLoading(false);
+      return;
+    }
+
     try {
-      const res = await loginRequest(form); // Replace with your API call
-      localStorage.setItem("token", res.token); 
-      navigate("/dashboard"); // 
+      const response = await loginRequest(form);
+      
+      // Store token and user data
+      if (response.access_token) {
+        localStorage.setItem('taskflux_token', response.access_token);
+        localStorage.setItem('taskflux_user', JSON.stringify(response.user));
+      }
+
+      // Redirect to dashboard
+      navigate("/dashboard");
+      
     } catch (err) {
-      setError(err?.response?.data?.message || "Login failed");
+      setError(err.message || "Login failed. Please check your credentials.");
     } finally {
       setLoading(false);
     }
@@ -42,46 +91,56 @@ export default function Login() {
           <form className="login-form" onSubmit={handleSubmit}>
             <h2 className="login-title">Login to Your Account</h2>
             <h5 className="login-subtitle">
-              Login Now. Don't have an account?{" "}
+              Login Now. Don't have an account? 
               <Link to="/register" className="register-link">Register here</Link>
             </h5>
-
-            {error && <p className="error-message">{error}</p>}
-
+            
+            {error && (
+              <div className="error-message">
+                {error}
+              </div>
+            )}
+            
             <div className="form-group">
               <label htmlFor="email" className="form-label">Email</label>
-              <input
-                type="email"
-                id="email"
+              <input 
+                type="email" 
+                id="email" 
                 name="email"
-                className="form-input"
-                placeholder="johndoe@gmail.com"
+                className="form-input" 
+                placeholder="johndoe@gmail.com" 
                 value={form.email}
                 onChange={handleChange}
-                required
+                disabled={loading}
+                required 
               />
             </div>
-
+            
             <div className="form-group">
               <label htmlFor="password" className="form-label">Password</label>
-              <input
-                type="password"
-                id="password"
+              <input 
+                type="password" 
+                id="password" 
                 name="password"
-                className="form-input"
-                placeholder="••••••••••••"
+                className="form-input" 
+                placeholder="••••••••••••" 
                 value={form.password}
                 onChange={handleChange}
-                required
+                disabled={loading}
+                required 
               />
             </div>
-
+            
             <Link to="/forgot-password" className="forgot-password">
               Forgot password?
             </Link>
-
-            <button type="submit" className="login-button" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
+            
+            <button 
+              type="submit" 
+              className={`login-button ${loading ? 'loading' : ''}`}
+              disabled={loading}
+            >
+              {loading ? 'Logging in...' : 'Login Now'}
             </button>
           </form>
         </div>

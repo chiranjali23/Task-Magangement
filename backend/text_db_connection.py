@@ -10,7 +10,7 @@ import os
 # Add the current directory to the Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from utils.database import db_manager
+from backend.database import db_manager
 from config import Config
 
 def test_database_connection():
