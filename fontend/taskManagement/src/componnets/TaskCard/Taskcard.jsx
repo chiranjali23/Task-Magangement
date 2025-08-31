@@ -1,78 +1,30 @@
-import { useEffect, useRef, useState } from "react";
-import './Taskcard.css';
+import "./TaskCard.css";
+import { FaFlag, FaRegStar, FaEdit, FaTrashAlt } from "react-icons/fa";
 
-export default function TaskModal({ open, onClose, onCreate }) {
-  const [form, setForm] = useState({
-    title: "", description: "", priority: "low", dueDate: "", completed: "no"
-  });
-  const titleRef = useRef(null);
-
-  useEffect(() => {
-    if (open) {
-      setForm({ title:"", description:"", priority:"low", dueDate:"", completed:"no" });
-      setTimeout(() => titleRef.current?.focus(), 0);
-      document.body.style.overflow = "hidden";
-      return () => { document.body.style.overflow = ""; };
-    }
-  }, [open]);
-
-  function handleChange(e){ const {name,value} = e.target; setForm(p=>({...p,[name]:value})); }
-  function submit(e){
-    e.preventDefault();
-    if (!form.title.trim()) return;
-    onCreate?.({
-      title: form.title.trim(),
-      desc: form.description.trim(),
-      priority: form.priority,
-      when: form.dueDate || "Today",
-      completed: form.completed === "yes",
-    });
-    onClose?.();
-  }
-
-  if (!open) return null;
+export default function TaskCard({ task }) {
+  const pri = (task.priority || "low").toLowerCase();
+  const priColor = { low: "#16a34a", medium: "#f59e0b", high: "#ef4444" }[pri];
 
   return (
-    <div className="tm-overlay" onClick={(e)=>e.target===e.currentTarget && onClose?.()}>
-      <div className="tm-dialog" role="dialog" aria-modal="true">
-        <form onSubmit={submit}>
-          <div className="tm-field">
-            <label className="tm-label">Title</label>
-            <input ref={titleRef} name="title" className="tm-input" placeholder="Task Title"
-                   value={form.title} onChange={handleChange} required />
-          </div>
+    <div className="tc-card">
+      <div className="tc-body">
+        <h3 className="tc-title">{task.title}</h3>
+        <p className="tc-desc">{task.desc}</p>
+      </div>
 
-          <div className="tm-field">
-            <label className="tm-label">Description</label>
-            <textarea name="description" className="tm-textarea" rows={3}
-                      placeholder="Task Description" value={form.description} onChange={handleChange}/>
-          </div>
+      <div className="tc-footer">
+        <span className="tc-when">{task.when}</span>
 
-          <div className="tm-row">
-            <div className="tm-field">
-              <label className="tm-label">Select Priority</label>
-              <select name="priority" className="tm-input" value={form.priority} onChange={handleChange}>
-                <option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option>
-              </select>
-            </div>
-            <div className="tm-field">
-              <label className="tm-label">Due Date</label>
-              <input type="date" name="dueDate" className="tm-input" value={form.dueDate} onChange={handleChange}/>
-            </div>
-          </div>
+        <span className="tc-priority" style={{ color: priColor }}>
+          <FaFlag className="tc-flag" />
+          {pri}
+        </span>
 
-          <div className="tm-field">
-            <label className="tm-label">Task Completed</label>
-            <select name="completed" className="tm-input" value={form.completed} onChange={handleChange}>
-              <option value="no">No</option><option value="yes">Yes</option>
-            </select>
-          </div>
-
-          <div className="tm-actions">
-            <button type="button" className="tm-btn ghost" onClick={onClose}>Cancel</button>
-            <button type="submit" className="tm-btn primary">Create Task</button>
-          </div>
-        </form>
+        <div className="tc-actions">
+          <button className="tc-icon" title="Star"><FaRegStar /></button>
+          <button className="tc-icon" title="Edit"><FaEdit /></button>
+          <button className="tc-icon" title="Delete"><FaTrashAlt /></button>
+        </div>
       </div>
     </div>
   );
