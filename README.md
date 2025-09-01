@@ -102,16 +102,16 @@ npm start
 ---
 
 ## 📷 Screenshots (Optional)
-![TaskFlux UI](frontend/public/screenshot/login.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/Addtask.png)
 ![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/changepassword.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\main.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\Addtask.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\changepassword.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\dispalyPending.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\displayDelete.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\displayCompeleted.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\editTask.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\profile.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/dispalyPending.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/displayCompeleted.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/displayDelete.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/editTask.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/login.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/main.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/profile.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/register.png)
 
 
 
