@@ -103,7 +103,7 @@ npm start
 
 ## 📷 Screenshots (Optional)
 ![TaskFlux UI](frontend/public/screenshot/login.png)
-![TaskFlux UI](fontend\taskManagement\public\screenshot\register.png)
+![TaskFlux UI](https://github.com/chiranjali23/Task-Magangement/blob/main/fontend/taskManagement/public/screenshot/changepassword.png)
 ![TaskFlux UI](fontend\taskManagement\public\screenshot\main.png)
 ![TaskFlux UI](fontend\taskManagement\public\screenshot\Addtask.png)
 ![TaskFlux UI](fontend\taskManagement\public\screenshot\changepassword.png)
