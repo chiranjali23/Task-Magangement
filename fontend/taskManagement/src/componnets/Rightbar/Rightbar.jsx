@@ -1,5 +1,7 @@
 import React from "react";
 import "./Rightbar.css";
+import { Link } from "react-router-dom";
+
 
 export default function RightPanel({
   user = { name: "William Jones" },
@@ -58,6 +60,10 @@ export default function RightPanel({
         <div className="rp-note">
           Task completion improved by <b>{completedPct}%</b> this week.
         </div>
+      </div>
+
+      <div className="rp-logout">
+        <Link to ='/'>Logout</Link>
       </div>
     </aside>
   );

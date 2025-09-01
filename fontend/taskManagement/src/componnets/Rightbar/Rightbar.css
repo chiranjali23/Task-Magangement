@@ -1,91 +1,253 @@
-/* Container */
-.rp{
-    width: 300px;
-    flex: 0 0 300px;
-    padding: 16px;
-    box-sizing: border-box;
-    position: sticky;
-    top: 64px; /* under fixed navbar */
-    height: calc(100vh - 64px);
-    overflow: auto;
+/* Rightbar.css - Machine Color Scheme */
+
+.rp {
+    width: 240px;
+    height: 100vh;
+    background: #2c2f33; /* Dark metallic background */
+    border-left: 1px solid #3a3d41; /* Metallic border */
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 64px; /* Account for navbar height */
+    color: #d1d5db; /* Light text color */
   }
   
-  /* Cards */
-  .rp-card{
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.06);
-    padding:14px;
-    margin-bottom:14px;
+  /* Card styling */
+  .rp-card {
+    background: #3a3d41; /* Metallic card background */
+    border-radius: 8px;
+    padding: 16px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    border: 1px solid #4b4f54; /* Metallic border */
   }
   
-  .rp-card-title{
-    font-weight:700;
-    color:#111827;
-    margin-bottom:10px;
+  .rp-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #d1d5db; /* Light text color */
+    margin-bottom: 12px;
   }
   
   /* Hello card */
-  .rp-hello{
-    display:flex; align-items:center; gap:10px;
+  .rp-hello {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
   }
-  .rp-avatar{
-    width:40px;height:40px;border-radius:50%;
-    background:#4f46e5;color:#fff;display:grid;place-items:center;
-    font-weight:700;
-  }
-  .rp-hello-title{ font-size:12px; color:#6b7280; margin-bottom:2px; }
-  .rp-hello-name{ font-weight:700; color:#111827; }
   
-  /* KPIs grid */
-  .rp-grid{
-    display:grid;
+  .rp-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #4f46e5, #3b82f6); /* Metallic blue gradient */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  
+  .rp-hello-title {
+    font-size: 12px;
+    color: #9ca3af; /* Subtle gray text */
+    margin-bottom: 2px;
+  }
+  
+  .rp-hello-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff; /* Bright white text */
+  }
+  
+  /* Overview grid */
+  .rp-grid {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:10px;
-  }
-  .rp-kpi{
-    background:#f9fafb;
-    border:1px solid #eef2f7;
-    border-radius:10px;
-    padding:10px;
-    text-align:center;
-  }
-  .rp-kpi-num{ font-size:18px; font-weight:800; color:#111827; }
-  .rp-kpi-label{ font-size:12px; color:#6b7280; }
-  
-  /* Gauge: simple semi-circle without libraries */
-  .rp-gauge{
-    position:relative;
-    width: 200px; height: 100px; /* semi circle */
-    margin: 4px auto 8px auto;
-  }
-  .rp-gauge-arc{
-    --value: 120deg; /* replaced inline */
-    position:absolute; inset:0;
-    border-top-left-radius: 200px 200px;
-    border-top-right-radius: 200px 200px;
-    background:
-      conic-gradient(from 180deg, #22c55e var(--value), #e5e7eb var(--value));
-    -webkit-mask:
-      radial-gradient(100px 100px at 100px 100px, transparent 99px, #000 100px),
-      linear-gradient(#000 0 0) top/100% 50% no-repeat;
-            mask:
-      radial-gradient(100px 100px at 100px 100px, transparent 99px, #000 100px),
-      linear-gradient(#000 0 0) top/100% 50% no-repeat;
-  }
-  .rp-gauge-center{
-    position:absolute; left:0; right:0; bottom:0;
-    transform: translateY(35%);
-    text-align:center;
-  }
-  .rp-gauge-num{ font-size:20px; font-weight:800; color:#111827; }
-  .rp-gauge-sub{ font-size:12px; color:#6b7280; }
-  
-  .rp-note{ font-size:12px; color:#6b7280; }
-  
-  /* Responsive: hide right panel on small screens */
-  @media (max-width: 1024px){
-    .rp{ display:none; }
+    gap: 8px;
   }
   
+  .rp-kpi {
+    text-align: center;
+    padding: 8px 4px;
+    background: #4b4f54; /* Metallic background */
+    border-radius: 6px;
+    border: 1px solid #5a5e63; /* Metallic border */
+  }
+  
+  .rp-kpi-num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3b82f6; /* Blue accent */
+    margin-bottom: 2px;
+  }
+  
+  .rp-kpi-label {
+    font-size: 10px;
+    color: #9ca3af; /* Subtle gray text */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Gauge styling */
+  .rp-gauge {
+    position: relative;
+    width: 120px;
+    height: 60px;
+    margin: 16px auto;
+  }
+  
+  .rp-gauge-arc {
+    width: 100%;
+    height: 100%;
+    border-radius: 120px 120px 0 0;
+    background: conic-gradient(
+      from 180deg at 50% 100%, 
+      #3b82f6 0deg, 
+      #3b82f6 var(--value, 0deg), 
+      #4b4f54 var(--value, 0deg), 
+      #4b4f54 180deg
+    );
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .rp-gauge-arc::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background: #2c2f33; /* Match sidebar background */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 80px 80px 0 0;
+  }
+  
+  .rp-gauge-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    text-align: center;
+    z-index: 10;
+  }
+  
+  .rp-gauge-num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3b82f6; /* Blue accent */
+    margin-bottom: 2px;
+  }
+  
+  .rp-gauge-sub {
+    font-size: 10px;
+    color: #9ca3af; /* Subtle gray text */
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .rp-note {
+    font-size: 11px;
+    color: #9ca3af; /* Subtle gray text */
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+  
+  .rp-note b {
+    color: #3b82f6; /* Blue accent */
+    font-weight: 600;
+  }
+  
+  /* Scrollbar styling */
+  .rp::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .rp::-webkit-scrollbar-track {
+    background: #2c2f33; /* Match sidebar background */
+  }
+  
+  .rp::-webkit-scrollbar-thumb {
+    background: #4b4f54; /* Metallic thumb */
+    border-radius: 2px;
+  }
+  
+  .rp::-webkit-scrollbar-thumb:hover {
+    background: #5a5e63; /* Lighter metallic thumb */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .rp {
+      width: 220px;
+      padding: 14px 10px;
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .rp {
+      display: none; /* Hide on tablets and mobile */
+    }
+  }
+  
+  /* Hover effects */
+  .rp-kpi:hover {
+    background: #3b82f6; /* Blue hover */
+    border-color: #3b82f6;
+    color: #ffffff; /* White text on hover */
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+  }
+  
+  .rp-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    transition: box-shadow 0.2s ease;
+  }
+
+ /* Logout button container */
+.rp-logout {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Logout button styling */
+  .rp-logout a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ef4444; /* Red background for logout */
+    color: #ffffff; /* White text */
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Hover effect for logout button */
+  .rp-logout a:hover {
+    background: #dc2626; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  /* Focus effect for logout button */
+  .rp-logout a:focus {
+    outline: 2px solid #f87171; /* Focus outline */
+    outline-offset: 2px;
+  }
+  
+  /* Disabled state for logout button (optional) */
+  .rp-logout a:disabled {
+    background: #9ca3af; /* Gray background for disabled state */
+    color: #e5e7eb; /* Light gray text */
+    cursor: not-allowed;
+  }

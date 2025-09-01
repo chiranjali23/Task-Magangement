@@ -87,7 +87,7 @@ export default function Register() {
 
       // Show success message and redirect
       alert('Registration successful! Please login to continue.');
-      navigate("/login");
+      navigate("/");
       
     } catch (err) {
       setError(err.message || "Registration failed. Please try again.");
@@ -106,7 +106,7 @@ export default function Register() {
             <h2 className="register-title">Create a New Account</h2>
             <h5 className="register-subtitle">
               Register Now. Already have an account?
-              <Link to="/login" className="login-link"> Login here</Link>
+              <Link to="/" className="login-link"> Login here</Link>
             </h5>
             
             {error && (

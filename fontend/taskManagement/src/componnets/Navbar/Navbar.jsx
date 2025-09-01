@@ -16,7 +16,7 @@ export default function Navbar() {
        
       <div className="navbar-right">
         <div className="login-btn">
-          <Link to="/login" className="login">Login</Link>
+          <Link to="/" className="login">Login</Link>
           <span className="separator"> / </span>
           <Link to="/register" className="register">Register</Link>
         </div>
