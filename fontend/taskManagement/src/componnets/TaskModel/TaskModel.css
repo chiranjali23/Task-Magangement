@@ -1,6 +1,4 @@
-/* TaskModel.css */
 
-/* Overlay for the modal */
 .tm-overlay {
   position: fixed;
   top: 0;
@@ -65,7 +63,7 @@
   height: 80px;
 }
 
-/* Row for multiple fields */
+
 .tm-row {
   display: flex;
   gap: 16px;
@@ -75,7 +73,7 @@
   flex: 1;
 }
 
-/* Actions (buttons) */
+
 .tm-actions {
   display: flex;
   justify-content: flex-end;
@@ -111,7 +109,7 @@
   background: #d1d5db;
 }
 
-/* Fade-in animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;

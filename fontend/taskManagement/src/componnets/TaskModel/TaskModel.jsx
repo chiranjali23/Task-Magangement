@@ -13,7 +13,7 @@ export default function TaskModal({
     title: "", description: "", priority: "low", dueDate: "", completed: "no"
   });
 
-  // preload values when editing or when opening
+  
   useEffect(() => {
     if (!open) return;
     if (mode === "edit" && initialTask) {

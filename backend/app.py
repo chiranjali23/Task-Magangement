@@ -4,8 +4,9 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from config import Config
 from routes.auth import auth_bp  
-from database import init_database  # Import the init_database function
+from database import init_database 
 import logging
+from routes.tasks import tasks_bp 
 
 # Configure logging
 logging.basicConfig(
@@ -30,7 +31,8 @@ def create_app():
     jwt = JWTManager(app)
     
     # Register blueprints
-    app.register_blueprint(auth_bp)  # ← This should work now
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(tasks_bp)  
     
     # Global error handlers
     @app.errorhandler(404)
@@ -128,6 +130,6 @@ if __name__ == '__main__':
         
     except Exception as e:
         logger.error(f"Failed to start application: {e}")
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         input("Press Enter to exit...")
         raise e

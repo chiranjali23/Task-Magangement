@@ -12,11 +12,11 @@ class Config:
     DB_NAME = os.getenv('DB_NAME', 'task_db')
     
     # JWT Configuration
-    JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', 'your-super-secret-key-change-this')
+    JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', '496f338a6d0bd305a9dea2002a6e13af3649090c3886f945007daf5ff5e95a51')
     JWT_ACCESS_TOKEN_EXPIRES = 3600  # 1 hour in seconds
     
     # Flask Configuration
-    SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key-change-this')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'df029394d6e04965ab198e8f3e8f1bfa4cab259e2b550cf442efc1a24e1ab6b4')
     DEBUG = os.getenv('FLASK_ENV', 'production') == 'development'
     
     # CORS Configuration

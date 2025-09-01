@@ -12,7 +12,6 @@ export default function RightPanel({
 
   return (
     <aside className="rp">
-      {/* Hello card */}
       <div className="rp-card rp-hello">
         <div className="rp-avatar">{user.name?.[0]?.toUpperCase() || "U"}</div>
         <div>

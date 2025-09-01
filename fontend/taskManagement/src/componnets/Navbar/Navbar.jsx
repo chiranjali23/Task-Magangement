@@ -1,4 +1,4 @@
-// Navbar.jsx
+
 import { Link } from "react-router-dom";
 import { FaRegQuestionCircle, FaMoon, FaUserCircle } from "react-icons/fa";
 import "./Navbar.css";

@@ -1,6 +1,4 @@
-/* ===========================
-   Dashboard Layout (no Tailwind)
-   =========================== */
+
 
    :root{
     --nav-h: 64px;   /* fixed navbar height */
@@ -13,7 +11,7 @@
     background: linear-gradient(135deg, #f7f5ff, #eef6ff, #fff5f7);
   }
   
-  /* main 3-column layout: [left sidebar is fixed], center content + right panel flow here */
+  
   .dashboard-content{
     margin-top: var(--nav-h);
     margin-left: var(--side-w);
@@ -24,10 +22,10 @@
     box-sizing: border-box;
   }
   
-  /* ===== center column ===== */
+  
   .task-area{
     flex: 1;
-    min-width: 0; /* prevents overflow when grid shrinks */
+    min-width: 0; 
   }
   
   .task-area-head{
@@ -44,7 +42,7 @@
     color: #374151;
   }
   
-  /* optional top-right button (if you keep it in page head as well) */
+  
   .add-btn{
     padding: 8px 14px;
     border: none;
@@ -57,14 +55,14 @@
   }
   .add-btn:hover{ background:#16a34a; transform: translateY(-1px); }
   
-  /* grid of task cards */
+  
   .tasks{
     display: grid;
     gap: 14px;
     grid-template-columns: repeat(4, minmax(240px, 1fr));
   }
   
-  /* responsive grid breakpoints */
+  
   @media (max-width: 1200px){
     .tasks{ grid-template-columns: repeat(3, minmax(240px, 1fr)); }
   }
@@ -76,9 +74,7 @@
     .tasks{ grid-template-columns: 1fr; }
   }
   
-  /* ===== right-side sticky panel container =====
-     (the panel’s inner styling is in RightPanel.css;
-     these rules just reserve and position the column) */
+  
   .right-panel{
     width: 300px;
     flex: 0 0 300px;
@@ -88,14 +84,10 @@
     overflow: auto;
   }
   
-  /* Hide right panel on smaller screens */
+ 
   @media (max-width: 1024px){
     .right-panel{ display: none; }
   }
   
-  /* ===== helpers (optional) ===== */
   
-  /* if you wrap your right panel with this class in JSX:
-     <div className="right-panel"><RightPanel .../></div>
-     otherwise, remove this block and rely entirely on RightPanel.css */
   

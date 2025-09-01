@@ -91,8 +91,8 @@
   height: 28px;
   border: none;
   border-radius: 8px;
-  background: #f3f4f6; /* gray-100 */
-  color: #374151;      /* gray-700 */
+  background: #f3f4f6; 
+  color: #374151;      
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -100,7 +100,7 @@
 }
 
 .tc-icon:hover {
-  background: #e5e7eb; /* gray-200 */
+  background: #e5e7eb; 
   color: #111827;
   transform: scale(1.05);
 }
@@ -111,9 +111,9 @@
 
 /* Star button states */
 .star-btn {
-  color: #9ca3af; /* gray-400 */
+  color: #9ca3af; 
 }
 
 .star-btn.active {
-  color: #facc15; /* yellow-400 */
+  color: #facc15; 
 }

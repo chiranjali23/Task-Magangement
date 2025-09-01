@@ -1,6 +1,3 @@
-"""
-Enhanced routes/auth.py with detailed error handling and logging
-"""
 
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
@@ -19,7 +16,7 @@ auth_bp = Blueprint('auth', __name__, url_prefix='/api')
 def register():
     """Register a new user with enhanced error handling"""
     try:
-        logger.info("📝 Registration request received")
+        logger.info(" Registration request received")
         
         # Get JSON data from request
         data = request.get_json()
@@ -79,7 +76,7 @@ def register():
             'debug_info': str(e) if logger.level <= logging.DEBUG else None
         }), 500
 
-@auth_bp.route('/login', methods=['POST'])
+@auth_bp.route('/', methods=['POST'])
 def login():
     """Login user with enhanced error handling"""
     try:
@@ -145,7 +142,7 @@ def login():
 def get_profile():
     """Get user profile with enhanced error handling"""
     try:
-        logger.info("👤 Profile request received")
+        logger.info(" Profile request received")
         
         # Get current user ID from JWT token
         current_user_id = get_jwt_identity()
@@ -230,5 +227,5 @@ def handle_unauthorized(e):
     }), 401
 
 # Add this at the end of the file for debugging
-print("✅ routes/auth.py loaded successfully!")
+print("routes/auth.py loaded successfully!")
 logger.info("Auth routes module initialized")

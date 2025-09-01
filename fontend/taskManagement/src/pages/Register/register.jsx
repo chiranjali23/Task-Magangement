@@ -1,11 +1,11 @@
-// Updated Register.jsx with backend integration
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 import Navbar from "../../componnets/Navbar/Navbar";
 import Sidebar from "../../componnets/sidebar/sidebar";
 
-// API base URL - adjust this to match your backend
+
 const API_BASE_URL = 'http://localhost:5000/api';
 
 export default function Register() {
@@ -23,7 +23,7 @@ export default function Register() {
       ...prev,
       [e.target.name]: e.target.value
     }));
-    // Clear error when user starts typing
+    
     if (error) setError("");
   }
 
@@ -79,13 +79,13 @@ export default function Register() {
     try {
       const response = await registerRequest(form);
       
-      // Store token in localStorage (optional)
+      
       if (response.access_token) {
         localStorage.setItem('taskflux_token', response.access_token);
         localStorage.setItem('taskflux_user', JSON.stringify(response.user));
       }
 
-      // Show success message and redirect
+      
       alert('Registration successful! Please login to continue.');
       navigate("/");
       

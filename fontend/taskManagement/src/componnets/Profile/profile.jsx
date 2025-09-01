@@ -19,7 +19,6 @@ export default function ProfileModal({
       setPwForm({ currentPassword: "", newPassword: "", confirm: "" });
       setShowPw(false);
       setError("");
-      // prevent body scroll while modal open
       document.body.style.overflow = "hidden";
       return () => { document.body.style.overflow = ""; };
     }

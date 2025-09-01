@@ -1,4 +1,4 @@
-// Sidebar.jsx
+
 import React, { useState } from 'react';
 import { FaThLarge, FaCheckCircle, FaClock, FaExclamationTriangle, FaRecycle } from "react-icons/fa";
 import './sidebar.css';
@@ -48,7 +48,7 @@ export default function Sidebar({ onFilterChange }) {
           </button>
         </div>
 
-        {/* Add the recycle icon */}
+       
         <div className="sidebar-bottom">
           <button 
             className={`sidebar-btn ${active === "deleted" ? "active" : ""}`} 

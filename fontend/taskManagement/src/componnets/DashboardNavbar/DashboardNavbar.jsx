@@ -1,4 +1,4 @@
-// src/components/DashboardNavbar/DashboardNavbar.jsx
+
 import { FaRegQuestionCircle, FaMoon, FaUserCircle } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import "./DashboardNavbar.css";

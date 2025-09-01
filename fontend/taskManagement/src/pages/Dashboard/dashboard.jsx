@@ -139,10 +139,10 @@ export default function Dashboard() {
       </div>
 
       <div className="dashboard-content">
-        {/* Sidebar tells Dashboard which filter to use */}
+    
         <Sidebar onFilterChange={setFilter} />
 
-        {/* center column */}
+        
         <div className="task-area">
           <div className="task-area-head">
             <h2>

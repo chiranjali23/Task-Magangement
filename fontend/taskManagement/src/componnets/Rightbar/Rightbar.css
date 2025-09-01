@@ -1,10 +1,9 @@
-/* Rightbar.css - Machine Color Scheme */
 
 .rp {
     width: 240px;
     height: 100vh;
-    background: #2c2f33; /* Dark metallic background */
-    border-left: 1px solid #3a3d41; /* Metallic border */
+    background: #2c2f33; 
+    border-left: 1px solid #3a3d41; 
     padding: 16px 12px;
     display: flex;
     flex-direction: column;
@@ -13,26 +12,25 @@
     position: fixed;
     right: 0;
     top: 64px; /* Account for navbar height */
-    color: #d1d5db; /* Light text color */
-  }
+    color: #d1d5db; 
   
   /* Card styling */
   .rp-card {
-    background: #3a3d41; /* Metallic card background */
+    background: #3a3d41; /
     border-radius: 8px;
     padding: 16px 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-    border: 1px solid #4b4f54; /* Metallic border */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
+    border: 1px solid #4b4f54; 
   }
   
   .rp-card-title {
     font-size: 14px;
     font-weight: 600;
-    color: #d1d5db; /* Light text color */
+    color: #d1d5db; 
     margin-bottom: 12px;
   }
   
-  /* Hello card */
+  
   .rp-hello {
     display: flex;
     align-items: center;
@@ -43,7 +41,7 @@
   .rp-avatar {
     width: 36px;
     height: 36px;
-    background: linear-gradient(135deg, #4f46e5, #3b82f6); /* Metallic blue gradient */
+    background: linear-gradient(135deg, #4f46e5, #3b82f6); 
     color: white;
     border-radius: 50%;
     display: flex;
@@ -56,17 +54,17 @@
   
   .rp-hello-title {
     font-size: 12px;
-    color: #9ca3af; /* Subtle gray text */
+    color: #9ca3af; 
     margin-bottom: 2px;
   }
   
   .rp-hello-name {
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff; /* Bright white text */
+    color: #ffffff; 
   }
   
-  /* Overview grid */
+  
   .rp-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -76,21 +74,21 @@
   .rp-kpi {
     text-align: center;
     padding: 8px 4px;
-    background: #4b4f54; /* Metallic background */
+    background: #4b4f54; 
     border-radius: 6px;
-    border: 1px solid #5a5e63; /* Metallic border */
+    border: 1px solid #5a5e63; 
   }
   
   .rp-kpi-num {
     font-size: 18px;
     font-weight: 700;
-    color: #3b82f6; /* Blue accent */
+    color: #3b82f6; 
     margin-bottom: 2px;
   }
   
   .rp-kpi-label {
     font-size: 10px;
-    color: #9ca3af; /* Subtle gray text */
+    color: #9ca3af; 
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -124,7 +122,7 @@
     position: absolute;
     width: 80px;
     height: 40px;
-    background: #2c2f33; /* Match sidebar background */
+    background: #2c2f33; 
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -143,49 +141,49 @@
   .rp-gauge-num {
     font-size: 18px;
     font-weight: 700;
-    color: #3b82f6; /* Blue accent */
+    color: #3b82f6; 
     margin-bottom: 2px;
   }
   
   .rp-gauge-sub {
     font-size: 10px;
-    color: #9ca3af; /* Subtle gray text */
+    color: #9ca3af; 
     text-transform: uppercase;
     font-weight: 500;
   }
   
   .rp-note {
     font-size: 11px;
-    color: #9ca3af; /* Subtle gray text */
+    color: #9ca3af; 
     text-align: center;
     margin-top: 12px;
     line-height: 1.4;
   }
   
   .rp-note b {
-    color: #3b82f6; /* Blue accent */
+    color: #3b82f6; 
     font-weight: 600;
   }
   
-  /* Scrollbar styling */
+  
   .rp::-webkit-scrollbar {
     width: 4px;
   }
   
   .rp::-webkit-scrollbar-track {
-    background: #2c2f33; /* Match sidebar background */
+    background: #2c2f33; 
   }
   
   .rp::-webkit-scrollbar-thumb {
-    background: #4b4f54; /* Metallic thumb */
+    background: #4b4f54; 
     border-radius: 2px;
   }
   
   .rp::-webkit-scrollbar-thumb:hover {
-    background: #5a5e63; /* Lighter metallic thumb */
+    background: #5a5e63; 
   }
   
-  /* Responsive adjustments */
+  
   @media (max-width: 1200px) {
     .rp {
       width: 220px;
@@ -196,36 +194,36 @@
   
   @media (max-width: 992px) {
     .rp {
-      display: none; /* Hide on tablets and mobile */
+      display: none; 
     }
   }
   
   /* Hover effects */
   .rp-kpi:hover {
-    background: #3b82f6; /* Blue hover */
+    background: #3b82f6; 
     border-color: #3b82f6;
-    color: #ffffff; /* White text on hover */
+    color: #ffffff; 
     transform: translateY(-1px);
     transition: all 0.2s ease;
   }
   
   .rp-card:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
     transition: box-shadow 0.2s ease;
   }
 
- /* Logout button container */
+
 .rp-logout {
     margin-top: 20px;
     text-align: center;
   }
   
-  /* Logout button styling */
+  
   .rp-logout a {
     display: inline-block;
     padding: 10px 20px;
-    background: #ef4444; /* Red background for logout */
-    color: #ffffff; /* White text */
+    background: #ef4444; 
+    color: #ffffff; 
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
@@ -233,21 +231,21 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
-  /* Hover effect for logout button */
+  
   .rp-logout a:hover {
-    background: #dc2626; /* Darker red on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background: #dc2626; 
+    transform: translateY(-2px); 
   }
   
   /* Focus effect for logout button */
   .rp-logout a:focus {
-    outline: 2px solid #f87171; /* Focus outline */
+    outline: 2px solid #f87171; 
     outline-offset: 2px;
   }
   
   /* Disabled state for logout button (optional) */
   .rp-logout a:disabled {
-    background: #9ca3af; /* Gray background for disabled state */
-    color: #e5e7eb; /* Light gray text */
+    background: #9ca3af; 
+    color: #e5e7eb; 
     cursor: not-allowed;
   }
